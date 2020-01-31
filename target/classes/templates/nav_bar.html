@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="nav">
+		<nav class="navbar  navbar-expand-lg navbar-light fixed-top"
+			id="mainNav" style="background-color: black; height: 50px;width:100%">
+			<div class="container">
+				<!-- <a class="navbar-brand" th:href="@{'/admin/postcheck'}">Admin</a> -->
+				<div class="nav-item dropdown" sec:authorize="isAuthenticated()">
+							<a class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdown" role="button" data-toggle="dropdown"> 
+							<span>Admin</span>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" th:href="@{'/admin/userlist'}">User List</a> 
+								<a class="dropdown-item" th:href="@{'/admin/postlist'}">Post List</a>
+							</div>
+						</div>
+				
+				<button class="navbar-toggler navbar-toggler-right" type="button"
+					data-toggle="collapse" data-target="#navbarResponsive"
+					aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					Menu <i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link" th:href="@{'/home'}">Home</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{'/about'}">About</a></li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{'/contact'}">Contact</a></li>
+						<li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+							<a class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdown" role="button" data-toggle="dropdown"> <span
+								sec:authentication="name"></span>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" th:href="@{'/add-new-company'}">Add company</a>
+								<a class="dropdown-item" th:href="@{'/add-new-employee'}">Add Employee</a>
+								<a class="dropdown-item" th:href="@{'/logout'}">Log Out</a>
+							</div>
+						</li>
+
+						<li class="nav-item" sec:authorize="!isAuthenticated()"><a
+							class="nav-link" th:href="@{'/login'}">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	</div>
+</body>
+</html>

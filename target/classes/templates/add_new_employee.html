@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="general::header">
+<meta charset="UTF-8" />
+</head>
+
+<body >
+<div th:replace="nav_bar::nav"></div>
+	<div class="container" style="background-color:black;height:50px">
+		
+			<br/><br/><br/>
+			<form th:action="@{/save-employee}" method="post">
+					<h>Employee </h>
+						<div><input class="form-control" placeholder="Employee" type="text" th:name="employeeName"   /></div>
+					<br/><br/>
+					<h>Contact </h>
+					<input class="form-control" placeholder="Contact" type="text" th:name="contact">
+					<br/>
+					<div colspan="2" ><button class="btn btn-primary" type="submit">save</button></div>
+			</form>
+	</div>
+</body>
+</html>
